@@ -1,0 +1,30 @@
+.lista {
+    display: grid;
+    padding: 30px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+mat-toolbar-row {
+    justify-content: flex-end;
+}
+
+
+/* cards */
+
+mat-card-header {
+    background: #bdbdbd;
+    padding: 5px;
+}
+
+mat-card-content {
+    padding: 10px;
+}
+
+mat-card-content button {
+    margin-right: 10px;
+}
+
+mat-card {
+    padding: 0;
+}

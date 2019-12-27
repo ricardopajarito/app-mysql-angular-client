@@ -1,0 +1,26 @@
+<mat-toolbar>
+    <div class="botones">
+        <button mat-raised-button routerLink="/inicio">Atrás</button>
+    </div>
+    <a routerLink="/">
+        <h1><i class="fas fa-book-open"></i> Quantum Olegra</h1>
+    </a>
+</mat-toolbar>
+<section class="hero-inicio-sesion">
+    <div class="left">
+        <div class="foto">
+            <img src="/assets/img/classroom.jpg" alt="perfil">
+        </div>
+        <mat-card>
+            <mat-form-field color="warn">
+                <input matInput placeholder="Usuario" #usuario name="usuario" required [(ngModel)]="user.usuario">
+            </mat-form-field>
+            <mat-form-field color="warn">
+                <input matInput placeholder="Contraseña" type="password" name="password" required [(ngModel)]="user.password">
+            </mat-form-field>
+            <button mat-raised-button color="warn" class="child" (click)="onLogin()">Iniciar sesión</button>
+        </mat-card>
+    </div>
+    <div class="right">
+    </div>
+</section>

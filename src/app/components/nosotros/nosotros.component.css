@@ -1,0 +1,72 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    background: rgba(0, 0, 0, .1);
+    z-index: 999;
+    position: fixed;
+}
+
+.botones button {
+    font-size: 22px;
+    margin-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+mat-toolbar h1 {
+    font-size: 42px;
+    color: white;
+}
+
+mat-toolbar a {
+    text-decoration: none;
+}
+
+.hero-principal {
+    height: 100vh;
+    /* background-color: #52ACFF;
+  background-image: linear-gradient(90deg, #52ACFF 25%, #FFE32C 100%); */
+    background-color: #FF3CAC;
+    background-image: linear-gradient(30deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+    padding: 10vh 40px 40px 40px;
+}
+
+.hero-principal h2 {
+    text-align: left;
+    color: white;
+    font-weight: 400;
+    font-size: 52px;
+}
+
+.tarjetas {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.tarjeta {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    position: relative;
+    top: 0;
+    transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
+    border-radius: 12px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    margin: 20px;
+}
+
+.tarjeta:hover {
+    transform: scale(1.05, 1.05);
+}
+
+.txt_tarjeta {
+    display: flex;
+    padding: 20px 20px 20px 30px;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #eeeeee;
+    border-radius: 12px;
+}

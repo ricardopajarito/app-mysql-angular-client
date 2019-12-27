@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <h1>Bienvenido | {{ user.usuario }}</h1>
+    <div class="botones">
+        <button mat-raised-button color="warn" (click)="logOut()">Cerrar sesión <i class="fas fa-sign-out-alt"></i></button>
+    </div>
+</mat-toolbar>
+<!-- <div class="contenido"> -->
+<nav mat-tab-nav-bar mat-align-tabs="center">
+    <a mat-tab-link *ngFor="let link of links" [routerLink]="link.path" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+          {{link.label}}
+        </a>
+</nav>

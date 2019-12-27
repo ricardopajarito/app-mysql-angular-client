@@ -1,0 +1,176 @@
+<mat-toolbar>
+    <div class="botones">
+        <button mat-raised-button routerLink="/alumno/{{ tema }}/{{ grado }}">Atrás</button>
+    </div>
+    <h2>{{ leccion.nombre }}</h2>
+    <div class="botones">
+        <button mat-raised-button color="warn" (click)="logOut()">Cerrar sesión <i class="fas fa-sign-out-alt"></i></button>
+    </div>
+</mat-toolbar>
+<!-- Fin de barra de navegacion -->
+
+
+<div *ngIf="tipo == 1">
+    <!-- <button mat-raised-button color="warn" (click)="comprobar1()">Comprobar1</button> -->
+    <mat-tab-group>
+        <mat-tab label="Lectura">
+            <pdf-viewer [src]="contenido.url"></pdf-viewer>
+        </mat-tab>
+        <mat-tab label="Cuestionario">
+            <mat-horizontal-stepper linear #stepper>
+                <!-- <mat-step *ngFor="let indice of contenido.cuestionario" [(stepControl)]="indice.formgroup" [editable]="isEditable">
+                    <form [formGroup]="indice.formgroup">
+                        <ng-template matStepLabel></ng-template>
+                        <h3>{{ indice.pregunta }}</h3>
+                        <mat-form-field>
+                            <mat-label>Selecciona</mat-label>
+                            <mat-select [formControlName]="indice.fcn" required>
+                                <mat-option *ngFor="let opcion of indice.opciones" [value]="opcion">{{ opcion }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div>
+                            <button mat-button matStepperNext>Siguiente</button>
+                        </div>
+                    </form>
+                </mat-step> -->
+                <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+                    <form [formGroup]="firstFormGroup">
+                        <ng-template matStepLabel>Pregunta 1</ng-template>
+                        <h3>{{ contenido.cuestionario.first.pregunta }}</h3>
+                        <mat-form-field>
+                            <mat-label>Selecciona</mat-label>
+                            <mat-select formControlName="firstCtrl" required>
+                                <mat-option *ngFor="let opcion of contenido.cuestionario.first.opciones" [value]="opcion">{{ opcion }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div>
+                            <button mat-stroked-button matStepperNext>Siguiente</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+                    <form [formGroup]="secondFormGroup">
+                        <ng-template matStepLabel>Pregunta 2</ng-template>
+                        <h3>{{ contenido.cuestionario.second.pregunta }}</h3>
+                        <mat-form-field>
+                            <mat-label>Selecciona</mat-label>
+                            <mat-select formControlName="secondCtrl" required>
+                                <mat-option *ngFor="let opcion of contenido.cuestionario.second.opciones" [value]="opcion">{{ opcion }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div>
+                            <button mat-stroked-button matStepperNext>Siguiente</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="thirdFormGroup" [editable]="isEditable">
+                    <form [formGroup]="thirdFormGroup">
+                        <ng-template matStepLabel>Pregunta 3</ng-template>
+                        <h3>{{ contenido.cuestionario.third.pregunta }}</h3>
+                        <mat-form-field>
+                            <mat-label>Selecciona</mat-label>
+                            <mat-select formControlName="thirdCtrl" required>
+                                <mat-option *ngFor="let opcion of contenido.cuestionario.third.opciones" [value]="opcion">{{ opcion }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div>
+                            <button mat-stroked-button matStepperNext>Siguiente</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="fourFormGroup" [editable]="isEditable">
+                    <form [formGroup]="fourFormGroup">
+                        <ng-template matStepLabel>Pregunta 4</ng-template>
+                        <h3>{{ contenido.cuestionario.four.pregunta }}</h3>
+                        <mat-form-field>
+                            <mat-label>Selecciona</mat-label>
+                            <mat-select formControlName="fourCtrl" required>
+                                <mat-option *ngFor="let opcion of contenido.cuestionario.four.opciones" [value]="opcion">{{ opcion }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div>
+                            <button mat-stroked-button matStepperNext>Siguiente</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="fiveFormGroup" [editable]="isEditable">
+                    <form [formGroup]="fiveFormGroup">
+                        <ng-template matStepLabel>Pregunta 5</ng-template>
+                        <h3>{{ contenido.cuestionario.five.pregunta }}</h3>
+                        <mat-form-field>
+                            <mat-label>Selecciona</mat-label>
+                            <mat-select formControlName="fiveCtrl" required>
+                                <mat-option *ngFor="let opcion of contenido.cuestionario.five.opciones" [value]="opcion">{{ opcion }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div>
+                            <button mat-stroked-button matStepperNext>Siguiente</button>
+                        </div>
+                    </form>
+                </mat-step>
+
+                <mat-step>
+                    <ng-template matStepLabel>¡Listo!</ng-template>
+                    Has acabado.
+                    <div>
+                        <!-- <button mat-button matStepperPrevious>Back</button> -->
+                        <button mat-stroked-button (click)="stepper.reset()">Reiniciar</button>
+                    </div>
+                </mat-step>
+            </mat-horizontal-stepper>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+<div *ngIf="tipo == 2">
+    <div class="hero-principal">
+        <h3 class="tipo2">Clasifica las siguientes palabras en verbos, nombres y adjetivos, arrastra y suelta.</h3>
+        <div class="contenedor" cdkDropListGroup>
+            <div class="example-container1">
+                <h4 class="tipo2">Palabras</h4>
+                <div cdkDropList #listaPalabras="cdkDropList" [cdkDropListData]="palabras" [cdkDropListConnectedTo]="[listaVerbos, listaNombres, listaAdjetivos]" class="example-list1" (cdkDropListDropped)="drop($event)">
+                    <div class="example-box" cdkDropList *ngFor="let palabra of palabras" cdkDrag>
+                        {{ palabra }}
+                    </div>
+                </div>
+            </div>
+            <div class="contenedores">
+                <div class="example-container">
+                    <h4 class="tipo2">Verbos</h4>
+                    <div cdkDropList #listaVerbos="cdkDropList" [cdkDropListData]="verbos" [cdkDropListConnectedTo]="[listaPalabras, listaNombres, listaAdjetivos]" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" cdkDropList *ngFor="let verbo of verbos" cdkDrag>
+                            {{ verbo }}
+                        </div>
+                    </div>
+                </div>
+                <div class="example-container">
+                    <h4 class="tipo2">Nombres</h4>
+                    <div cdkDropList #listaNombres="cdkDropList" [cdkDropListData]="nombres" [cdkDropListConnectedTo]="[listaPalabras, listaVerbos, listaAdjetivos]" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" cdkDropList *ngFor="let nombre of nombres" cdkDrag>
+                            {{ nombre }}
+                        </div>
+                    </div>
+                </div>
+                <div class="example-container">
+                    <h4 class="tipo2">Adjetivos</h4>
+                    <div cdkDropList #listaAdjetivos="cdkDropList" [cdkDropListData]="adjetivos" [cdkDropListConnectedTo]="[listaPalabras, listaVerbos, listaNombres]" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" cdkDropList *ngFor="let adjetivo of adjetivos" cdkDrag>
+                            {{ adjetivo }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button mat-raised-button (click)="comprobar2()">Comprobar</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="tipo == 3">
+    <div *ngFor="let ejercicio of contenido.Ejercicios">
+        <div>
+            <h2>Ejercicio</h2>
+            <div *ngFor="let palabra of ejercicio.Palabras">
+                <p>{{ palabra }}</p>
+            </div>
+        </div>
+    </div>
+    <button mat-raised-button color="warn" (click)="comprobar3()">Comprobar3</button>
+</div>

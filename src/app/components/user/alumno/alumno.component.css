@@ -1,0 +1,133 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+}
+
+.botones button {
+    font-size: 18px;
+    margin-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+mat-toolbar h1 {
+    font-size: 24px;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+.hero-principal {
+    height: 90vh;
+    background-color: #FF3CAC;
+    background-image: linear-gradient(30deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+}
+
+.contenedor {
+    height: 100%;
+    width: 100%;
+}
+
+.contenedor h2 {
+    margin: 0;
+    padding: 40px;
+    text-align: center;
+    color: white;
+}
+
+.temas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    overflow: hidden;
+}
+
+
+/* boton repaso */
+
+.repaso {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.circulo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    border-style: solid;
+    border-color: #ff8f00;
+    background: #ff8f00;
+    width: 200px;
+    height: 200px;
+    font-size: 28px;
+    font-weight: 600;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transform: translateZ(0);
+    box-shadow: 0 5px #e64a19;
+}
+
+.circulo:hover {
+    transform: translateY(-5px);
+}
+
+
+/* botones vertical */
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+/* css para cada boton */
+
+.button {
+    margin: 20px;
+    padding: 20px;
+    background: #17aa56;
+    color: #fff;
+    border-radius: 7px;
+    box-shadow: 0 5px #2e7d32;
+    text-align: center;
+    height: 80px;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transform: translateZ(0);
+    cursor: pointer;
+    border: none;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+}
+
+.button2 {
+    width: 300px;
+    color: black;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.violeta {
+    background: #ce93d8;
+    box-shadow: 0 5px #9c27b0;
+}
+
+.cyan {
+    background: #80deea;
+    box-shadow: 0 5px #00838f;
+}
+
+.lima {
+    background: #cddc39;
+    box-shadow: 0 5px #afb42b;
+}

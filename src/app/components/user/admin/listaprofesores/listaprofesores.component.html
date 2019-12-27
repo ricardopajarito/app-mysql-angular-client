@@ -1,0 +1,21 @@
+<app-admin></app-admin>
+<mat-toolbar>
+    <mat-toolbar-row>
+        <button mat-stroked-button color="primary" routerLink="/admin/profesorAdd"><i class="fas fa-user-plus"></i> Agregar profesor</button>
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="lista">
+    <div *ngFor="let profesor of profesores">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{ profesor.nombre }} {{ profesor.paterno }} {{ profesor.materno }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p> Cedúla: {{ profesor.cedula }} </p>
+                <p> Nombre de usuario: {{ profesor.usuario }}</p>
+                <button mat-raised-button color="primary" [routerLink]="['/admin/profesor/edit/', profesor.id]"><i class="fas fa-user-edit"></i> Editar</button>
+                <button mat-stroked-button color="warn" (click)="eliminarProfesor(profesor.id)"><i class="far fa-trash-alt"></i> Eliminar</button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

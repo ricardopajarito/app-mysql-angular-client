@@ -1,0 +1,111 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+}
+
+.botones button {
+    font-size: 18px;
+    margin-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.hero-principal {
+    height: 90vh;
+    background-color: #FF3CAC;
+    background-image: linear-gradient(30deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+}
+
+.contenedor {
+    height: 100%;
+    width: 100%;
+}
+
+.contenedor h2 {
+    margin: 0;
+    padding: 40px;
+    text-align: center;
+    color: white;
+}
+
+.grados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+/* css para cada boton */
+
+.button {
+    margin: 20px;
+    padding: 20px;
+    background: #17aa56;
+    color: #fff;
+    border-radius: 7px;
+    box-shadow: 0 5px #2e7d32;
+    text-align: center;
+    width: 300px;
+    height: 80px;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transform: translateZ(0);
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+}
+
+.button2 {
+    color: black;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.rojo {
+    background: #f44336;
+    box-shadow: 0 5px #b71c1c;
+}
+
+.amber {
+    background: #ffc107;
+    box-shadow: 0 5px #ff8f00;
+}
+
+.violeta {
+    background: #ce93d8;
+    box-shadow: 0 5px #9c27b0;
+}
+
+.cyan {
+    background: #80deea;
+    box-shadow: 0 5px #00838f;
+}
+
+.crema {
+    background: #ffecb3;
+    box-shadow: 0 5px #ffc400;
+}
+
+.lima {
+    background: #cddc39;
+    box-shadow: 0 5px #afb42b;
+}

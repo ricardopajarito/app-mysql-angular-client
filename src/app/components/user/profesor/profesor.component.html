@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+    <h1>Bienvenido | {{ user.nombre }} {{ user.paterno}} {{ user.materno }}</h1>
+    <div class="botones">
+        <button mat-raised-button color="warn" (click)="logOut()">Cerrar sesión <i class="fas fa-sign-out-alt"></i></button>
+    </div>
+</mat-toolbar>
+<mat-toolbar>
+    <mat-toolbar-row>
+        <h2>Lista de alumnos</h2>
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="lista">
+    <div *ngFor="let alumno of alumnos">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{ alumno.nombre }} {{ alumno.paterno }} {{ alumno.materno }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p> Grado: {{ alumno.grado }} Grupo: {{ alumno.grupo }}</p>
+                <p> Nombre de usuario: {{ alumno.usuario }}</p>
+                <div>
+                    <p>Ortografía {{ alumno.ortografia }}%</p>
+                    <mat-progress-bar mode="determinate" [(value)]="alumno.ortografia"></mat-progress-bar>
+                </div>
+                <div>
+                    <p>Gramática {{ alumno.gramatica }}%</p>
+                    <mat-progress-bar mode="determinate" [(value)]="alumno.gramatica"></mat-progress-bar>
+                </div>
+                <div>
+                    <p>Lectura {{ alumno.lectura }}%</p>
+                    <mat-progress-bar mode="determinate" [(value)]="alumno.lectura"></mat-progress-bar>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

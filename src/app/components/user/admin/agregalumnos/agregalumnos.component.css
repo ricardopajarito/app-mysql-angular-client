@@ -1,0 +1,29 @@
+/* agregar alumno */
+
+.row {
+    padding: 30px;
+}
+
+.row mat-card {
+    padding: 20px;
+}
+
+.campos mat-form-field {
+    margin-right: 20px;
+}
+
+.profesor {
+    width: 500px;
+}
+
+mat-card button {
+    margin-right: 10px;
+}
+
+ng-template button {
+    margin-right: 10px;
+}
+
+mat-slide-toggle {
+    margin-right: 20px;
+}

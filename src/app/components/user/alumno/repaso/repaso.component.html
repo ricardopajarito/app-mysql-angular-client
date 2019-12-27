@@ -1,0 +1,85 @@
+<mat-toolbar>
+    <div class="botones">
+        <button mat-raised-button routerLink="/alumno">Atrás</button>
+    </div>
+    <div class="botones">
+        <button mat-raised-button color="warn" (click)="logOut()">Cerrar sesión <i class="fas fa-sign-out-alt"></i></button>
+    </div>
+</mat-toolbar>
+<section class="hero-principal">
+    <div class="contenedor">
+        <h2>Selecciona el grado sobre el cual quieres trabajar</h2>
+        <div class="grados" *ngIf="user.grado == 1">
+            <div class="vertical">
+                <button mat-raised-button routerLink="/repaso/1" class="button button2 amber">1°</button>
+                <button mat-raised-button class="button button2 violeta" disabled>2°</button>
+                <button mat-raised-button class="button button2 cyan" disabled>3°</button>
+            </div>
+            <div class="vertical">
+                <button mat-raised-button class="button button2 rojo" disabled>4°</button>
+                <button mat-raised-button class="button button2 crema" disabled>5°</button>
+                <button mat-raised-button class="button button2 lima" disabled>6°</button>
+            </div>
+        </div>
+        <div class="grados" *ngIf="user.grado == 2">
+            <div class="vertical">
+                <button mat-raised-button routerLink="/repaso/1" class="button button2 amber">1°</button>
+                <button mat-raised-button routerLink="/repaso/2" class="button button2 violeta">2°</button>
+                <button mat-raised-button class="button button2 cyan" disabled>3°</button>
+            </div>
+            <div class="vertical">
+                <button mat-raised-button class="button button2 rojo" disabled>4°</button>
+                <button mat-raised-button class="button button2 crema" disabled>5°</button>
+                <button mat-raised-button class="button button2 lima" disabled>6°</button>
+            </div>
+        </div>
+        <div class="grados" *ngIf="user.grado == 3">
+            <div class="vertical">
+                <button mat-raised-button routerLink="/repaso/1" class="button button2 amber">1°</button>
+                <button mat-raised-button routerLink="/repaso/2" class="button button2 violeta">2°</button>
+                <button mat-raised-button routerLink="/repaso/3" class="button button2 cyan">3°</button>
+            </div>
+            <div class="vertical">
+                <button mat-raised-button class="button button2 rojo" disabled>4°</button>
+                <button mat-raised-button class="button button2 crema" disabled>5°</button>
+                <button mat-raised-button class="button button2 lima" disabled>6°</button>
+            </div>
+        </div>
+        <div class="grados" *ngIf="user.grado == 4">
+            <div class="vertical">
+                <button mat-raised-button routerLink="/repaso/1" class="button button2 amber">1°</button>
+                <button mat-raised-button routerLink="/repaso/2" class="button button2 violeta">2°</button>
+                <button mat-raised-button routerLink="/repaso/3" class="button button2 cyan">3°</button>
+            </div>
+            <div class="vertical">
+                <button mat-raised-button routerLink="/repaso/4" class="button button2 rojo">4°</button>
+                <button mat-raised-button class="button button2 crema" disabled>5°</button>
+                <button mat-raised-button class="button button2 lima" disabled>6°</button>
+            </div>
+        </div>
+        <div class="grados" *ngIf="user.grado == 5">
+            <div class="vertical">
+                <button mat-raised-button routerLink="/repaso/1" class="button button2 amber">1°</button>
+                <button mat-raised-button routerLink="/repaso/2" class="button button2 violeta">2°</button>
+                <button mat-raised-button routerLink="/repaso/3" class="button button2 cyan">3°</button>
+            </div>
+            <div class="vertical">
+                <button mat-raised-button routerLink="/repaso/4" class="button button2 rojo">4°</button>
+                <button mat-raised-button routerLink="/repaso/5" class="button button2 crema">5°</button>
+                <button mat-raised-button class="button button2 lima" disabled>6°</button>
+            </div>
+        </div>
+        <div class="grados" *ngIf="user.grado == 6">
+            <div class="vertical">
+                <button mat-raised-button routerLink="/repaso/1" class="button button2 amber">1°</button>
+                <button mat-raised-button routerLink="/repaso/2" class="button button2 violeta">2°</button>
+                <button mat-raised-button routerLink="/repaso/3" class="button button2 cyan">3°</button>
+            </div>
+            <div class="vertical">
+                <button mat-raised-button routerLink="/repaso/4" class="button button2 rojo">4°</button>
+                <button mat-raised-button routerLink="/repaso/5" class="button button2 crema">5°</button>
+                <button mat-raised-button routerLink="/repaso/6" class="button button2 lima">6°</button>
+            </div>
+        </div>
+    </div>
+</section>

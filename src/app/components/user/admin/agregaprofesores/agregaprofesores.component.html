@@ -1,0 +1,77 @@
+<app-admin></app-admin>
+<div class="row">
+    <mat-card>
+        <div *ngIf="edit == true; else agregarA">
+            <mat-card-header>Editar profesor</mat-card-header>
+            <div class="campos">
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Nombre(s)" [(ngModel)]="profesor.nombre" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Apellido paterno" [(ngModel)]="profesor.paterno" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Apellido materno" [(ngModel)]="profesor.materno" required>
+                </mat-form-field>
+            </div>
+            <div class="campos">
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Usuario" [(ngModel)]="profesor.usuario" disabled required>
+                </mat-form-field>
+                <mat-slide-toggle (click)="habilitar()">¿Restablecer password?</mat-slide-toggle>
+                <mat-form-field>
+                    <mat-label>Nuevo Password</mat-label>
+                    <input matInput [disabled]="disabled" [(ngModel)]="nuevoPassword">
+                </mat-form-field>
+            </div>
+            <div class="campos">
+                <mat-form-field>
+                    <input matInput placeholder="Cedula" [(ngModel)]="profesor.cedula" required>
+                </mat-form-field>
+            </div>
+            <button mat-raised-button color="primary" (click)="actualizarProfesor()">Actualizar</button>
+            <button mat-raised-button color="warn" (click)="cancelar()">Cancelar</button>
+        </div>
+        <ng-template #agregarA>
+            <mat-card-header>Agregar profesor</mat-card-header>
+            <form [formGroup]="profesorForm" autocomplete="off" novalidate (ngSubmit)="agregarProfesor(profesorForm.value)">
+                <div class="campos">
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Nombre(s)" formControlName="nombre" id="nombre" required>
+                        <mat-error *ngIf="hasError('nombre', 'required')">El nombre es obligatorio</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Apellido paterno" formControlName="paterno" id="paterno" required>
+                        <mat-error *ngIf="hasError('paterno', 'required')">El apellido paterno es obligatorio</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Apellido materno" formControlName="materno" id="materno" required>
+                        <mat-error *ngIf="hasError('materno', 'required')">El apellido materno es obligatorio</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="campos">
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Usuario" formControlName="usuario" id="usuario" required>
+                        <mat-error *ngIf="hasError('usuario', 'required')">El nombre de usuario es obligatorio</mat-error>
+                        <mat-error *ngIf="hasError('usuario', 'maxlength')">Nombre de usuario máx 10 caracteres</mat-error>
+                        <mat-error *ngIf="hasError('usuario', 'pattern')">Solo se premite a-zA-Z0-9</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Password" formControlName="password" id="password" required>
+                        <mat-error *ngIf="hasError('password', 'required')">El password es obligatorio</mat-error>
+                        <mat-error *ngIf="hasError('password', 'maxlength')">Password de 10 caracteres máximo</mat-error>
+                        <mat-error *ngIf="hasError('password', 'pattern')">Solo se premite a-zA-Z0-9</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="campos">
+                    <mat-form-field>
+                        <input matInput placeholder="Cedula" formControlName="cedula" id="cedula" required>
+                        <mat-error *ngIf="hasError('password', 'required')">La cedula es obligatoria</mat-error>
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button color="primary" [disabled]="!profesorForm.valid">Agregar</button>
+                <button mat-raised-button color="warn" (click)="cancelar()">Cancelar</button>
+            </form>
+        </ng-template>
+    </mat-card>
+</div>

@@ -1,0 +1,64 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+}
+
+.botones button {
+    font-size: 18px;
+    margin-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+mat-card {
+    cursor: pointer;
+}
+
+.hero-principal {
+    height: 90vh;
+    background-color: #FF3CAC;
+    background-image: linear-gradient(30deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+}
+
+.contenedor {
+    height: 100%;
+    width: 100%;
+}
+
+.contenedor h2 {
+    margin: 0;
+    padding: 40px;
+    text-align: center;
+    color: white;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    padding: 40px;
+}
+
+.button {
+    padding: 20px;
+    background: #17aa56;
+    color: #fff;
+    border-radius: 7px;
+    box-shadow: 0 5px #2e7d32;
+    text-align: center;
+    height: auto;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transform: translateZ(0);
+}
+
+.cyan {
+    background: #80deea;
+    box-shadow: 0 5px #00838f;
+}

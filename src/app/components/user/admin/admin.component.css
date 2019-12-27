@@ -1,0 +1,12 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+}
+
+.botones button {
+    font-size: 18px;
+    margin-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

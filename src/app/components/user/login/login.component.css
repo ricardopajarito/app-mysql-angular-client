@@ -1,0 +1,72 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    background: rgba(0, 0, 0, .1);
+    z-index: 999;
+    position: fixed;
+}
+
+.botones button {
+    font-size: 22px;
+    margin-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+mat-toolbar h1 {
+    font-size: 42px;
+    color: white;
+}
+
+mat-toolbar a {
+    text-decoration: none;
+}
+
+.hero-inicio-sesion {
+    height: 100vh;
+    overflow: hidden;
+    /* background-color: #FAD961;
+    background-image: linear-gradient(180deg, #FAD961 0%, #F76B1C 78%); */
+    background-color: #FF3CAC;
+    background-image: linear-gradient(30deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.left {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 10vh 40px 20px 40px;
+}
+
+.right {
+    background-image: url('/assets/img/login-min.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.foto {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.foto img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+mat-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 80px 40px 80px;
+}
+
+.child {
+    align-self: center;
+}

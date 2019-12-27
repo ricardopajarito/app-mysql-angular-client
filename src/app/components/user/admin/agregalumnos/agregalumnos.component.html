@@ -1,0 +1,119 @@
+<app-admin></app-admin>
+<div class="row">
+    <mat-card>
+        <div *ngIf="edit == true; else agregarA">
+            <mat-card-header>Editar alumno</mat-card-header>
+            <div class="campos">
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Nombre(s)" [(ngModel)]="alumno.nombre" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Apellido paterno" [(ngModel)]="alumno.paterno" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Apellido materno" [(ngModel)]="alumno.materno" required>
+                </mat-form-field>
+            </div>
+            <div class="campos">
+                <mat-form-field>
+                    <mat-label>Grado</mat-label>
+                    <mat-select [(value)]="alumno.grado" required>
+                        <mat-option *ngFor="let grado of grados" [value]="grado">{{ grado }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Grupo</mat-label>
+                    <mat-select [(value)]="alumno.grupo" required>
+                        <mat-option *ngFor="let grupo of grupos" [value]="grupo">{{ grupo }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="campos">
+                <mat-form-field>
+                    <input matInput placeholder="Usuario" [(ngModel)]="alumno.usuario" disabled required>
+                </mat-form-field>
+                <mat-slide-toggle (click)="habilitar()">¿Restablecer password?</mat-slide-toggle>
+                <mat-form-field>
+                    <mat-label>Nuevo Password</mat-label>
+                    <input matInput [disabled]="disabled" [(ngModel)]="nuevoPassword">
+                </mat-form-field>
+            </div>
+            <div class="campos">
+                <mat-form-field class="profesor">
+                    <mat-label>Profesor</mat-label>
+                    <mat-select [(value)]="alumno.id_profesor" required>
+                        <div *ngFor="let profesor of profesores">
+                            <mat-option [value]="profesor.id">{{ profesor.nombre }} {{ profesor.paterno }} {{ profesor.materno }}</mat-option>
+                        </div>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <button mat-raised-button color="primary" (click)="actualizarAlumno()">Actualizar</button>
+            <button mat-raised-button color="warn" (click)="cancelar()">Cancelar</button>
+        </div>
+        <ng-template #agregarA>
+            <mat-card-header>Agregar alumno</mat-card-header>
+            <form [formGroup]="alumnoForm" autocomplete="off" novalidate (ngSubmit)="agregarAlumno(alumnoForm.value)">
+                <div class="campos">
+                    <mat-form-field>
+                        <input matInput placeholder="Nombre(s)" formControlName="nombre" id="nombre" required>
+                        <mat-error *ngIf="hasError('nombre', 'required')">El nombre es obligatorio</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Apellido paterno" formControlName="paterno" id="paterno" required>
+                        <mat-error *ngIf="hasError('paterno', 'required')">El apellido paterno es obligatorio</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Apellido materno" formControlName="materno" id="materno" required>
+                        <mat-error *ngIf="hasError('materno', 'required')">El apellido materno es obligatorio</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="campos">
+                    <mat-form-field>
+                        <mat-label>Grado</mat-label>
+                        <mat-select formControlName="grado" id="grado" required>
+                            <mat-option *ngFor="let grado of grados" [value]="grado">{{ grado }}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="hasError('grado', 'required')">El grado es obligatorio</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Grupo</mat-label>
+                        <mat-select formControlName="grupo" id="grupo" required>
+                            <mat-option *ngFor="let grupo of grupos" [value]="grupo">{{ grupo }}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="hasError('grupo', 'required')">El grupo es obligatorio</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="campos">
+                    <mat-form-field>
+                        <input matInput placeholder="Usuario" formControlName="usuario" id="usuario" required>
+                        <mat-error *ngIf="hasError('usuario', 'required')">El nombre de usuario es obligatorio</mat-error>
+                        <mat-error *ngIf="hasError('usuario', 'maxlength')">Nombre de usuario máx 10 caracteres</mat-error>
+                        <mat-error *ngIf="hasError('usuario', 'pattern')">Solo se premite a-zA-Z0-9</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input matInput formControlName="password" id="password" required>
+                        <mat-error *ngIf="hasError('password', 'required')">El password es obligatorio</mat-error>
+                        <mat-error *ngIf="hasError('password', 'maxlength')">Password de 10 caracteres máximo</mat-error>
+                        <mat-error *ngIf="hasError('password', 'pattern')">Solo se premite a-zA-Z0-9</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="campos">
+                    <mat-form-field class="profesor">
+                        <mat-label>Profesor</mat-label>
+                        <mat-select formControlName="profesor" id="profesor" required>
+                            <div *ngFor="let profesor of profesores">
+                                <mat-option [value]="profesor.id">{{ profesor.nombre }} {{ profesor.paterno }} {{ profesor.materno }}</mat-option>
+                            </div>
+                        </mat-select>
+                        <mat-error *ngIf="hasError('profesor', 'required')">El nombre de profesor es obligatorio</mat-error>
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button color="primary" [disabled]="!alumnoForm.valid">Agregar</button>
+                <button mat-raised-button color="warn" (click)="cancelar()">Cancelar</button>
+            </form>
+        </ng-template>
+
+    </mat-card>
+</div>

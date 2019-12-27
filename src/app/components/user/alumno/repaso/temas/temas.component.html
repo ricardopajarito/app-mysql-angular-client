@@ -1,0 +1,21 @@
+<mat-toolbar>
+    <div class="botones">
+        <button mat-raised-button routerLink="/repaso">Atrás</button>
+    </div>
+    <div class="botones">
+        <button mat-raised-button color="warn" (click)="logOut()">Cerrar sesión <i class="fas fa-sign-out-alt"></i></button>
+    </div>
+</mat-toolbar>
+<div class="hero-principal">
+    <div class="contenedor">
+        <h2>Selecciona la opción sobre la cual vas a trabajar</h2>
+        <div class="temas">
+            <div></div>
+            <div class="vertical">
+                <button mat-raised-button class="button button2 cyan"><i class="fas fa-spell-check"></i> Ortografía</button>
+                <button mat-raised-button class="button button2 lima"> <i class="fas fa-ruler"></i> Gramática</button>
+                <button mat-raised-button class="button button2 violeta"><i class="fas fa-book"></i> Lectura</button>
+            </div>
+        </div>
+    </div>
+</div>
